@@ -42,7 +42,6 @@ function preload() {
     playButton.position(100,80);
     playButton.mousePressed(() => state = 1);  // Set another state on click
 
-    console.log("Play button clicked, state:", state);
 
     // Hide buttons initially, as they will be shown based on the state
 
@@ -67,7 +66,7 @@ function preload() {
          playButton.show();
          nextButton.hide();
 
-         //if (mouseIsPressed) state = 1;
+         
          
           break;
     

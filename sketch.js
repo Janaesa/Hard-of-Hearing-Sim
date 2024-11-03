@@ -6,6 +6,8 @@ let notet;
 let storm;
 let cafe;
 var state = 0;
+let gifTimer = 0;  // Timer for playing the GIF
+let gifDuration = 6 * 60;  // 6 seconds in frames (60 FPS)
 
 var nextButton, playButton, stormButton, arrowmButton;
 
@@ -73,11 +75,13 @@ function preload() {
     stormButton = createImg("assets/storm.png");
     stormButton.position(120, 60);
     stormButton.mousePressed(() => state = 3);  // Set another state on click
-    
- 
 
-   
+    lipsButton = createImg("assets/storm.png");
+    lipsButton.position(10, 60);
+    lipsButton.mousePressed(() => state = 4);  // Set another state on click
+
     
+
   }
 
   function draw() {
@@ -89,6 +93,7 @@ function preload() {
          playButton.show();
          nextButton.hide();
          stormButton.hide();
+         lipsButton.hide();
         
           break;
     
@@ -98,9 +103,8 @@ function preload() {
             playButton.hide();
             nextButton.show();
             stormButton.hide();
+            //lipsBotton.hide();
             
-            
-
             break;
 
         case 2:
@@ -110,6 +114,7 @@ function preload() {
             nextButton.hide();
             stormButton.show();
             
+            
 
 
             break;
@@ -117,17 +122,22 @@ function preload() {
         case 3:
           background(173,216,230)
           image(cafe,0, 0);
-          stormButton.hide();
+          image(hearing, 30, 5);
+          image(lips, 10,70)
           
-          
+          stormButton.hide(0);
+
 
 
 
           break;
 
-          case 4:
-            background(173,216,230)
-          image(cafe,0, 0);
+          //case 4:
+            //background(173,216,230)
+          //image(cafe,0, 0);
+
+          
+          
 
           //if (lipsButton.mousePressed(() => state = 4)) {
             //mouthgGif.show();

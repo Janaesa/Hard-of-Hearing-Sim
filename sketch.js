@@ -127,6 +127,7 @@ function preload() {
             playButton.hide();
             nextButton.hide();
             stormButton.show();
+            //lipsBotton.hide();
          
             
             
@@ -139,9 +140,12 @@ function preload() {
           image(cafe,0, 0);
           image(hearing, 30, 5);
           lipsButton.show()
+
           //image(lips, 10,70)
           
           stormButton.hide(0);
+
+          break;
 
 
           case 4:
@@ -149,9 +153,9 @@ function preload() {
           background(173,216,230)
           image(cafe,0, 0);
           mouthgGif.show();
-          playButton.hide();
-          nextButton.hide();
-          stormButton.hide();
+          //playButton.hide();
+          //nextButton.hide();
+          //stormButton.hide();
           lipsButton.hide();
 
 

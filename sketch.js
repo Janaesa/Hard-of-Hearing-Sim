@@ -41,7 +41,8 @@ function preload() {
 
 
     //girlgGif = createImg("assets/girlg.GIF"); // Keep the GIF as an HTML element
-    //mouthgGif = createImg("assets/mouthg.GIF"); // Keep the GIF as an HTML element
+    mouthgGif = createImg("assets/mouthg.GIF"); // Keep the GIF as an HTML element
+
 
   
 
@@ -57,6 +58,10 @@ function preload() {
 
     background(173, 216, 230);
          image(hgirl, 30,30);
+
+
+         mouthgGif.position(100, 50);
+         mouthgGif.hide();
          
 
 
@@ -72,15 +77,22 @@ function preload() {
     playButton.position(100,80);
     playButton.mousePressed(() => state = 1);  // Set another state on click
 
+    lipsButton = createImg("assets/lips.png");
+    lipsButton.position(10, 20);
+    lipsButton.mousePressed(() => state = 4);  // Set another state on click
+
     stormButton = createImg("assets/storm.png");
     stormButton.position(120, 60);
     stormButton.mousePressed(() => state = 3);  // Set another state on click
 
-    lipsButton = createImg("assets/storm.png");
-    lipsButton.position(10, 60);
-    lipsButton.mousePressed(() => state = 4);  // Set another state on click
+    //arrowmmButton = createImg("assets/arrowm.png");
+    //arrowmButton.position(100, 60);
+    //arrowmButton.mousePressed(() => state = 3);  // Set another state on click
 
-    
+
+
+
+   
 
   }
 
@@ -95,6 +107,7 @@ function preload() {
          stormButton.hide();
          lipsButton.hide();
         
+        
           break;
     
         case 1:
@@ -103,6 +116,7 @@ function preload() {
             playButton.hide();
             nextButton.show();
             stormButton.hide();
+          
             //lipsBotton.hide();
             
             break;
@@ -113,6 +127,7 @@ function preload() {
             playButton.hide();
             nextButton.hide();
             stormButton.show();
+         
             
             
 
@@ -123,9 +138,25 @@ function preload() {
           background(173,216,230)
           image(cafe,0, 0);
           image(hearing, 30, 5);
-          image(lips, 10,70)
+          lipsButton.show()
+          //image(lips, 10,70)
           
           stormButton.hide(0);
+
+
+          case 4:
+
+          background(173,216,230)
+          image(cafe,0, 0);
+          mouthgGif.show();
+          playButton.hide();
+          nextButton.hide();
+          stormButton.hide();
+          lipsButton.hide();
+
+
+
+
 
 
 

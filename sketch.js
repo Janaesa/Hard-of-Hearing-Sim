@@ -10,9 +10,10 @@ let readingmylips;
 let sadr;
 let seriousr;
 let waitwhatr;
+let goshb, subtitlesb, wrongb;
 
 
-var state = 3;
+var state = 0;
 
 
 let gifTimer = 0;  // Timer for playing the GIF
@@ -51,6 +52,11 @@ function preload() {
     nega = loadImage("assets/nega.PNG");
     pluss = loadImage("assets/pluss.PNG");
     subt = loadImage("assets/subt.PNG");
+
+    goshb = loadImage("assets/goshb.PNG");
+    subtitlesb = loadImage("assets/subtitlesb.PNG");
+    wrongb = loadImage("assets/wrongb.PNG");
+    
 
 
     girlgGif = createImg("assets/girlg.GIF"); // Keep the GIF as an HTML element
@@ -213,10 +219,46 @@ function preload() {
           stormButton.hide();
           lipsButton.hide();
           subtButton.hide();
+          seriousrButton.hide();
+          laughrButton.hide();
+          waitwhatrButton.hide();
+          sadrButton.hide();
+
           
 
 
           break;
+
+          case 5:
+
+          background(173,216,230)
+          image(cafe,0, 0);
+          image(hearing, 30, 5);
+          lipsButton.show();
+          arrowmButton.hide();
+          mouthgGif.hide();
+          nextButton.hide();
+          subtButton.show();
+          sadrButton.show();
+          playButton.hide();
+          seriousrButton.show();
+          laughrButton.show();
+          waitwhatrButton.show();
+          image(subtitlesb, 600, 50);
+
+          break;
+
+
+        
+
+
+          //image(lips, 10,70)
+          
+          stormButton.hide(0);
+
+          girlgGif.show();
+
+
 
           
           }

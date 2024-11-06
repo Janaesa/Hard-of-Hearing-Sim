@@ -5,7 +5,16 @@ let play;
 let notet;
 let storm;
 let cafe;
-var state = 0;
+let laughr;
+let readingmylips;
+let sadr;
+let seriousr;
+let waitwhatr;
+
+
+var state = 3;
+
+
 let gifTimer = 0;  // Timer for playing the GIF
 let gifDuration = 6 * 60;  // 6 seconds in frames (60 FPS) 
 
@@ -14,6 +23,9 @@ var nextButton, playButton, stormButton, arrowmButton;
 let arrowm, girlp, hearing, lips, nega, pluss, subt;
 
 var lipsButton, negaButton, plussButton, subtButton;
+
+var laughrButton, sadrButton, seriousrButton, waitwhatrButton;
+
 
 let mouthg, girlg;
 
@@ -30,6 +42,7 @@ function preload() {
     play = loadImage("assets/play.PNG");
     storm = loadImage("assets/storm.png");
     cafe = loadImage("assets/cafe.PNG");
+    readingmylips = loadImage("assets/readingmylips.PNG");
 
     arrowm = loadImage("assets/arrowm.PNG");
     girlp = loadImage("assets/girlp.PNG");
@@ -65,6 +78,7 @@ function preload() {
 
          girlgGif.position(100,10);
          girlgGif.hide();
+
          
 
 
@@ -96,6 +110,27 @@ function preload() {
     subtButton.position(40, 700);
     subtButton.mousePressed(() => state = 5);  // Set another state on click
     subtButton.hide();
+
+    sadrButton = createImg("assets/sadr.PNG");
+    sadrButton.position(500, 800);
+    sadrButton.mousePressed(() => state = 6);  // Set another state on click
+    sadrButton.hide();
+
+    seriousrButton = createImg("assets/seriousr.PNG");
+    seriousrButton.position(900, 800);
+    seriousrButton.mousePressed(() => state = 6);  // Set another state on click
+    seriousrButton.hide();
+
+    laughrButton = createImg("assets/laughr.PNG");
+    laughrButton.position(1300, 800);
+    laughrButton.mousePressed(() => state = 6);  // Set another state on click
+    laughrButton.hide();
+
+    waitwhatrButton = createImg("assets/waitwhatr.PNG");
+    waitwhatrButton.position(1700, 800);
+    waitwhatrButton.mousePressed(() => state = 6);  // Set another state on click
+    waitwhatrButton.hide();
+
    
   }
 
@@ -148,7 +183,13 @@ function preload() {
           lipsButton.show();
           arrowmButton.hide();
           mouthgGif.hide();
+          nextButton.hide();
           subtButton.show();
+          sadrButton.show();
+          playButton.hide();
+          seriousrButton.show();
+          laughrButton.show();
+          waitwhatrButton.show();
 
           //image(lips, 10,70)
           
@@ -162,20 +203,24 @@ function preload() {
           case 4:
 
           background(173,216,230)
-          image(cafe,0, 0);
+          image(cafe,0,0);
+          image(readingmylips,85,0);
           mouthgGif.show();
+          girlgGif.hide();
           arrowmButton.show();
-          //playButton.hide();
-          //nextButton.hide();
-          //stormButton.hide();
+          playButton.hide();
+          nextButton.hide();
+          stormButton.hide();
           lipsButton.hide();
           subtButton.hide();
+          
 
 
           break;
 
           
           }
+
 
          
           

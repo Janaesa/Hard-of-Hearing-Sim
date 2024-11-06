@@ -119,7 +119,7 @@ function preload() {
 
     sadrButton = createImg("assets/sadr.PNG");
     sadrButton.position(500, 800);
-    sadrButton.mousePressed(() => state = 6);  // Set another state on click
+    sadrButton.mousePressed(() => state = 7);  // Set another state on click
     sadrButton.hide();
 
     seriousrButton = createImg("assets/seriousr.PNG");
@@ -129,20 +129,24 @@ function preload() {
 
     laughrButton = createImg("assets/laughr.PNG");
     laughrButton.position(1300, 800);
-    laughrButton.mousePressed(() => state = 6);  // Set another state on click
+    laughrButton.mousePressed(() => state = 7);  // Set another state on click
     laughrButton.hide();
 
     waitwhatrButton = createImg("assets/waitwhatr.PNG");
     waitwhatrButton.position(1700, 800);
-    waitwhatrButton.mousePressed(() => state = 6);  // Set another state on click
+    waitwhatrButton.mousePressed(() => state = 7);  // Set another state on click
     waitwhatrButton.hide();
 
    
   }
 
   function draw() {
+  
 
      switch (state) {
+
+      //splash page
+
         case 0:
          background(173, 216, 230);
          image(hgirl, 30,30);
@@ -154,6 +158,12 @@ function preload() {
         
         
           break;
+
+
+
+          //explanation 1
+
+
     
         case 1:
             background(173, 216, 230);
@@ -163,9 +173,15 @@ function preload() {
             stormButton.hide();
             arrowmButton.hide();
           
-            //lipsBotton.hide();
+            
             
             break;
+
+
+
+            //explanation 2
+
+
 
         case 2:
             background(173,216,230);
@@ -174,13 +190,15 @@ function preload() {
             nextButton.hide();
             stormButton.show();
             arrowmButton.hide();
-            //lipsBotton.hide();
-         
-            
-            
-
+          
 
             break;
+
+
+
+            //main page
+
+
 
         case 3:
           background(173,216,230)
@@ -206,6 +224,9 @@ function preload() {
           break;
 
 
+          //read lips page
+
+
           case 4:
 
           background(173,216,230)
@@ -229,6 +250,8 @@ function preload() {
 
           break;
 
+          //subtitles reponse
+
           case 5:
 
           background(173,216,230)
@@ -249,10 +272,24 @@ function preload() {
           break;
 
 
-        
+          //serious face response
 
+          case 6:
 
-          //image(lips, 10,70)
+          image(cafe,0, 0);
+          image(hearing, 30, 5);
+          image(wrongb, 1380, 5);
+
+          lipsButton.show();
+          arrowmButton.hide();
+          mouthgGif.hide();
+          nextButton.hide();
+          subtButton.show();
+          sadrButton.show();
+          playButton.hide();
+          seriousrButton.show();
+          laughrButton.show();
+          waitwhatrButton.show();
           
           stormButton.hide(0);
 

@@ -7,7 +7,7 @@ let storm;
 let cafe;
 var state = 0;
 let gifTimer = 0;  // Timer for playing the GIF
-let gifDuration = 6 * 60;  // 6 seconds in frames (60 FPS)
+let gifDuration = 6 * 60;  // 6 seconds in frames (60 FPS) 
 
 var nextButton, playButton, stormButton, arrowmButton;
 
@@ -23,21 +23,21 @@ function preload() {
     // Hide buttons initially, as they will be shown based on the state
     
    
-    hgirl = loadImage("assets/hgirl.png");
-    next = loadImage("assets/next.png");
-    noteo = loadImage("assets/noteo.png");
-    notet = loadImage("assets/notet.png");
-    play = loadImage("assets/play.png");
+    hgirl = loadImage("assets/hgirl.PNG");
+    next = loadImage("assets/next.PNG");
+    noteo = loadImage("assets/noteo.PNG");
+    notet = loadImage("assets/notet.PNG");
+    play = loadImage("assets/play.PNG");
     storm = loadImage("assets/storm.png");
-    cafe = loadImage("assets/cafe.png");
+    cafe = loadImage("assets/cafe.PNG");
 
-    arrowm = loadImage("assets/arrowm.png");
-    girlp = loadImage("assets/girlp.png");
-    hearing = loadImage("assets/hearing.png");
-    lips = loadImage("assets/lips.png");
-    nega = loadImage("assets/nega.png");
-    pluss = loadImage("assets/pluss.png");
-    subt = loadImage("assets/subt.png");
+    arrowm = loadImage("assets/arrowm.PNG");
+    girlp = loadImage("assets/girlp.PNG");
+    hearing = loadImage("assets/hearing.PNG");
+    lips = loadImage("assets/lips.PNG");
+    nega = loadImage("assets/nega.PNG");
+    pluss = loadImage("assets/pluss.PNG");
+    subt = loadImage("assets/subt.PNG");
 
 
     girlgGif = createImg("assets/girlg.GIF"); // Keep the GIF as an HTML element
@@ -71,16 +71,16 @@ function preload() {
     //girlgGif = createImg("assets/girlg.GIF"); // Keep the GIF as an HTML element
     //girlgGif.hide();
     
-    nextButton = createImg("assets/next.png");
+    nextButton = createImg("assets/next.PNG");
     nextButton.position(1120, 900);
     nextButton.mousePressed(() => state = 2);  // Set to a different state on click
    
    
-    playButton = createImg("assets/play.png");
+    playButton = createImg("assets/play.PNG");
     playButton.position(890,800);
     playButton.mousePressed(() => state = 1);  // Set another state on click
 
-    lipsButton = createImg("assets/lips.png");
+    lipsButton = createImg("assets/lips.PNG");
     lipsButton.position(40, 370);
     lipsButton.mousePressed(() => state = 4);  // Set another state on click
 
@@ -88,11 +88,11 @@ function preload() {
     stormButton.position(1000, 900);
     stormButton.mousePressed(() => state = 3);  // Set another state on click
 
-    arrowmButton = createImg("assets/arrowm.png");
+    arrowmButton = createImg("assets/arrowm.PNG");
     arrowmButton.position(5, -10);
     arrowmButton.mousePressed(() => state = 3);  // Set another state on click
 
-    subtButton = createImg("assets/subt.png");
+    subtButton = createImg("assets/subt.PNG");
     subtButton.position(40, 700);
     subtButton.mousePressed(() => state = 5);  // Set another state on click
     subtButton.hide();

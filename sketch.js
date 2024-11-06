@@ -40,7 +40,7 @@ function preload() {
     subt = loadImage("assets/subt.png");
 
 
-    //girlgGif = createImg("assets/girlg.GIF"); // Keep the GIF as an HTML element
+    girlgGif = createImg("assets/girlg.GIF"); // Keep the GIF as an HTML element
     mouthgGif = createImg("assets/mouthg.GIF"); // Keep the GIF as an HTML element
 
 
@@ -62,6 +62,9 @@ function preload() {
 
          mouthgGif.position(100, 50);
          mouthgGif.hide();
+
+         girlgGif.position(100,10);
+         girlgGif.hide();
          
 
 
@@ -69,31 +72,31 @@ function preload() {
     //girlgGif.hide();
     
     nextButton = createImg("assets/next.png");
-    nextButton.position(100, 30);
+    nextButton.position(1120, 900);
     nextButton.mousePressed(() => state = 2);  // Set to a different state on click
    
    
     playButton = createImg("assets/play.png");
-    playButton.position(100,80);
+    playButton.position(890,800);
     playButton.mousePressed(() => state = 1);  // Set another state on click
 
     lipsButton = createImg("assets/lips.png");
-    lipsButton.position(10, 20);
+    lipsButton.position(40, 370);
     lipsButton.mousePressed(() => state = 4);  // Set another state on click
 
     stormButton = createImg("assets/storm.png");
-    stormButton.position(120, 60);
+    stormButton.position(1000, 900);
     stormButton.mousePressed(() => state = 3);  // Set another state on click
 
-    //arrowmmButton = createImg("assets/arrowm.png");
-    //arrowmButton.position(100, 60);
-    //arrowmButton.mousePressed(() => state = 3);  // Set another state on click
+    arrowmButton = createImg("assets/arrowm.png");
+    arrowmButton.position(5, -10);
+    arrowmButton.mousePressed(() => state = 3);  // Set another state on click
 
-
-
-
+    subtButton = createImg("assets/subt.png");
+    subtButton.position(40, 700);
+    subtButton.mousePressed(() => state = 5);  // Set another state on click
+    subtButton.hide();
    
-
   }
 
   function draw() {
@@ -106,6 +109,7 @@ function preload() {
          nextButton.hide();
          stormButton.hide();
          lipsButton.hide();
+         arrowmButton.hide();
         
         
           break;
@@ -116,6 +120,7 @@ function preload() {
             playButton.hide();
             nextButton.show();
             stormButton.hide();
+            arrowmButton.hide();
           
             //lipsBotton.hide();
             
@@ -127,6 +132,7 @@ function preload() {
             playButton.hide();
             nextButton.hide();
             stormButton.show();
+            arrowmButton.hide();
             //lipsBotton.hide();
          
             
@@ -139,11 +145,16 @@ function preload() {
           background(173,216,230)
           image(cafe,0, 0);
           image(hearing, 30, 5);
-          lipsButton.show()
+          lipsButton.show();
+          arrowmButton.hide();
+          mouthgGif.hide();
+          subtButton.show();
 
           //image(lips, 10,70)
           
           stormButton.hide(0);
+
+          girlgGif.show();
 
           break;
 
@@ -153,30 +164,17 @@ function preload() {
           background(173,216,230)
           image(cafe,0, 0);
           mouthgGif.show();
+          arrowmButton.show();
           //playButton.hide();
           //nextButton.hide();
           //stormButton.hide();
           lipsButton.hide();
-
-
-
-
-
-
+          subtButton.hide();
 
 
           break;
 
-          //case 4:
-            //background(173,216,230)
-          //image(cafe,0, 0);
-
           
-          
-
-          //if (lipsButton.mousePressed(() => state = 4)) {
-            //mouthgGif.show();
-            //}
           }
 
          

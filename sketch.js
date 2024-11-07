@@ -275,7 +275,7 @@ function preload() {
           seriousrButton.show();
           laughrButton.show();
           waitwhatrButton.show();
-          image(subtitless, 600, 50);
+          image(subtitless, 600, 27);
           boffButton.show();
 
           break;

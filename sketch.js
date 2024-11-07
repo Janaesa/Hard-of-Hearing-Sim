@@ -6,14 +6,14 @@ let notet;
 let storm;
 let cafe;
 let laughr;
-let readingmylips;
+let readl;
 let sadr;
 let seriousr;
 let waitwhatr;
-let goshb, subtitlesb, wrongb;
+let goshb, subtitless, wrongb, boff;
 
 
-var state = 0;
+var state = 3;
 
 
 let gifTimer = 0;  // Timer for playing the GIF
@@ -23,7 +23,7 @@ var nextButton, playButton, stormButton, arrowmButton;
 
 let arrowm, girlp, hearing, lips, nega, pluss, subt;
 
-var lipsButton, negaButton, plussButton, subtButton;
+var lipsButton, negaButton, plussButton, subtButton, boffButton;
 
 var laughrButton, sadrButton, seriousrButton, waitwhatrButton;
 
@@ -43,7 +43,7 @@ function preload() {
     play = loadImage("assets/play.PNG");
     storm = loadImage("assets/storm.png");
     cafe = loadImage("assets/cafe.PNG");
-    readingmylips = loadImage("assets/readingmylips.PNG");
+    readl = loadImage("assets/readl.PNG");
 
     arrowm = loadImage("assets/arrowm.PNG");
     girlp = loadImage("assets/girlp.PNG");
@@ -54,7 +54,7 @@ function preload() {
     subt = loadImage("assets/subt.PNG");
 
     goshb = loadImage("assets/goshb.PNG");
-    subtitlesb = loadImage("assets/subtitlesb.PNG");
+    subtitless = loadImage("assets/subtitless.PNG");
     wrongb = loadImage("assets/wrongb.PNG");
     
 
@@ -137,6 +137,12 @@ function preload() {
     waitwhatrButton.mousePressed(() => state = 7);  // Set another state on click
     waitwhatrButton.hide();
 
+    boffButton = createImg("assets/boff.PNG");
+    boffButton.position(100, 980);
+    boffButton.mousePressed(() => state = 3);  // Set another state on click
+    boffButton.hide();
+
+
    
   }
 
@@ -214,6 +220,7 @@ function preload() {
           seriousrButton.show();
           laughrButton.show();
           waitwhatrButton.show();
+          boffButton.show();
 
           //image(lips, 10,70)
           
@@ -231,7 +238,7 @@ function preload() {
 
           background(173,216,230)
           image(cafe,0,0);
-          image(readingmylips,85,0);
+          image(readl,780,100);
           mouthgGif.show();
           girlgGif.hide();
           arrowmButton.show();
@@ -244,6 +251,7 @@ function preload() {
           laughrButton.hide();
           waitwhatrButton.hide();
           sadrButton.hide();
+          boffButton.hide();
 
           
 
@@ -267,7 +275,8 @@ function preload() {
           seriousrButton.show();
           laughrButton.show();
           waitwhatrButton.show();
-          image(subtitlesb, 600, 50);
+          image(subtitless, 600, 50);
+          boffButton.show();
 
           break;
 
@@ -290,6 +299,7 @@ function preload() {
           seriousrButton.show();
           laughrButton.show();
           waitwhatrButton.show();
+          boffButton.show();
           
           stormButton.hide(0);
 

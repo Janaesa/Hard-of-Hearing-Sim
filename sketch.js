@@ -21,7 +21,7 @@ let goshb, subtitless, wrongb, boff;
 
 
 
-var state = 8;
+var state = 0;
 
 
 let gifTimer = 0;  // Timer for playing the GIF

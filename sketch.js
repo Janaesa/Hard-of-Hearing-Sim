@@ -10,7 +10,13 @@ let readl;
 let sadr;
 let seriousr;
 let waitwhatr;
+let losings;
+let yikest;
+let brestart;
+
+
 let goshb, subtitless, wrongb, boff;
+
 
 
 var state = 3;
@@ -26,6 +32,8 @@ let arrowm, girlp, hearing, lips, nega, pluss, subt;
 var lipsButton, negaButton, plussButton, subtButton, boffButton;
 
 var laughrButton, sadrButton, seriousrButton, waitwhatrButton;
+
+var brestartButton;
 
 
 let mouthg, girlg;
@@ -44,6 +52,8 @@ function preload() {
     storm = loadImage("assets/storm.png");
     cafe = loadImage("assets/cafe.PNG");
     readl = loadImage("assets/readl.PNG");
+    losings = loadImage("assets/losings.PNG");
+    yikest = loadImage("assets/yikest.PNG");
 
     arrowm = loadImage("assets/arrowm.PNG");
     girlp = loadImage("assets/girlp.PNG");
@@ -52,6 +62,7 @@ function preload() {
     nega = loadImage("assets/nega.PNG");
     pluss = loadImage("assets/pluss.PNG");
     subt = loadImage("assets/subt.PNG");
+    brestart =loadImage("assets/brestart.PNG");
 
     goshb = loadImage("assets/goshb.PNG");
     subtitless = loadImage("assets/subtitless.PNG");
@@ -119,7 +130,7 @@ function preload() {
 
     sadrButton = createImg("assets/sadr.PNG");
     sadrButton.position(500, 800);
-    sadrButton.mousePressed(() => state = 7);  // Set another state on click
+    sadrButton.mousePressed(() => state = 8);  // Set another state on click
     sadrButton.hide();
 
     seriousrButton = createImg("assets/seriousr.PNG");
@@ -134,13 +145,18 @@ function preload() {
 
     waitwhatrButton = createImg("assets/waitwhatr.PNG");
     waitwhatrButton.position(1700, 800);
-    waitwhatrButton.mousePressed(() => state = 7);  // Set another state on click
+    waitwhatrButton.mousePressed(() => state = 9);  // Set another state on click
     waitwhatrButton.hide();
 
     boffButton = createImg("assets/boff.PNG");
     boffButton.position(100, 980);
     boffButton.mousePressed(() => state = 3);  // Set another state on click
     boffButton.hide();
+
+    brestartButton = createImg("assets/brestart.PNG");
+    brestartButton.position(900, 980);
+    brestartButton.mousePressed(() => state = 0);  // Set another state on click
+    brestartButton.hide();
 
 
    
@@ -161,6 +177,7 @@ function preload() {
          stormButton.hide();
          lipsButton.hide();
          arrowmButton.hide();
+         brestartButton.hide();
         
         
           break;
@@ -304,6 +321,39 @@ function preload() {
           stormButton.hide(0);
 
           girlgGif.show();
+
+          break;
+
+          //losing screen
+
+          case 7:
+
+          image(losings, 0, 0);
+          image(yikest, 100,100);
+          brestartButton.show();
+
+
+          lipsButton.hide();
+          arrowmButton.hide();
+          mouthgGif.hide();
+          nextButton.hide();
+          subtButton.hide();
+          sadrButton.hide();
+          playButton.hide();
+          seriousrButton.hide();
+          laughrButton.hide();
+          waitwhatrButton.hide();
+          boffButton.hide();
+
+          girlgGif.hide();
+
+          break;
+
+
+
+
+
+
 
 
 

@@ -13,13 +13,15 @@ let waitwhatr;
 let losings;
 let yikest;
 let brestart;
+let wins;
+let nextlevelb;
 
 
 let goshb, subtitless, wrongb, boff;
 
 
 
-var state = 3;
+var state = 8;
 
 
 let gifTimer = 0;  // Timer for playing the GIF
@@ -33,7 +35,7 @@ var lipsButton, negaButton, plussButton, subtButton, boffButton;
 
 var laughrButton, sadrButton, seriousrButton, waitwhatrButton;
 
-var brestartButton;
+var brestartButton, nextlevelbButton;
 
 
 let mouthg, girlg;
@@ -54,6 +56,7 @@ function preload() {
     readl = loadImage("assets/readl.PNG");
     losings = loadImage("assets/losings.PNG");
     yikest = loadImage("assets/yikest.PNG");
+    wins = loadImage("assets/wins.PNG");
 
     arrowm = loadImage("assets/arrowm.PNG");
     girlp = loadImage("assets/girlp.PNG");
@@ -63,6 +66,8 @@ function preload() {
     pluss = loadImage("assets/pluss.PNG");
     subt = loadImage("assets/subt.PNG");
     brestart =loadImage("assets/brestart.PNG");
+    nextlevelb =loadImage("assets/nextlevelb.PNG");
+
 
     goshb = loadImage("assets/goshb.PNG");
     subtitless = loadImage("assets/subtitless.PNG");
@@ -157,6 +162,12 @@ function preload() {
     brestartButton.position(900, 980);
     brestartButton.mousePressed(() => state = 0);  // Set another state on click
     brestartButton.hide();
+
+    nextlevelbButton = createImg("assets/nextlevelb.PNG");
+    nextlevelbButton.position(630, 370);
+    nextlevelbButton.mousePressed(() => state = 10);  // Set another state on click
+    nextlevelbButton.hide();
+
 
 
    
@@ -348,6 +359,40 @@ function preload() {
           girlgGif.hide();
 
           break;
+
+          //winning screen
+
+          case 8:
+
+          image(wins, 0, 0);
+
+          nextlevelbButton.show();
+
+
+          brestartButton.hide();
+
+
+          lipsButton.hide();
+          arrowmButton.hide();
+          mouthgGif.hide();
+          nextButton.hide();
+          subtButton.hide();
+          sadrButton.hide();
+          playButton.hide();
+          seriousrButton.hide();
+          laughrButton.hide();
+          waitwhatrButton.hide();
+          boffButton.hide();
+          stormButton.hide();
+
+          girlgGif.hide();
+
+
+
+
+
+
+
 
 
 

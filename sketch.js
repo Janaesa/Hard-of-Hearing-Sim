@@ -15,6 +15,11 @@ let yikest;
 let brestart;
 let wins;
 let nextlevelb;
+let aurapoints;
+let nohearing, ohreallyr, reddresr;
+
+let subtb, campusb;
+
 
 
 
@@ -22,7 +27,7 @@ let goshb, subtitless, wrongb, boff, homeb;
 
 
 
-var state = 0;
+var state = 10;
 
 
 let gifTimer = 0;  // Timer for playing the GIF
@@ -34,9 +39,11 @@ let arrowm, girlp, hearing, lips, nega, pluss, subt;
 
 var lipsButton, negaButton, plussButton, subtButton, boffButton;
 
-var laughrButton, sadrButton, seriousrButton, waitwhatrButton;
+var laughrButton, sadrButton, seriousrButton, waitwhatrButton, subtbButton;
 
-var brestartButton, nextlevelbButton;
+var brestartButton, nextlevelbButton, campusbButton;
+
+var ohreallyrButton, reddressrButton;
 
 
 let mouthg, girlg;
@@ -58,6 +65,7 @@ function preload() {
     losings = loadImage("assets/losings.PNG");
     yikest = loadImage("assets/yikest.PNG");
     wins = loadImage("assets/wins.PNG");
+    aurapoints = loadImage("assets/aurapoints.PNG");
 
     arrowm = loadImage("assets/arrowm.PNG");
     girlp = loadImage("assets/girlp.PNG");
@@ -69,11 +77,22 @@ function preload() {
     brestart = loadImage("assets/brestart.PNG");
     nextlevelb = loadImage("assets/nextlevelb.PNG");
     homeb = loadImage("assets/homeb.PNG");
+    nohearing = loadImage("assets/nohearing.PNG");
+    ohreallyr = loadImage("assets/ohreallyr.PNG");
+    reddressr = loadImage("assets/reddressr.PNG");
+
+
 
 
     goshb = loadImage("assets/goshb.PNG");
     subtitless = loadImage("assets/subtitless.PNG");
     wrongb = loadImage("assets/wrongb.PNG");
+    subtbButton = loadImage("assets/subtb.PNG");
+    campusbButton = loadImage("assets/campusb.PNG");
+    ohreallyrButton = loadImage("assets/ohreallyr.PNG");
+    reddressrButton = loadImage("assets/reddressr.PNG");
+  
+    
     
 
 
@@ -167,13 +186,35 @@ function preload() {
 
     nextlevelbButton = createImg("assets/nextlevelb.PNG");
     nextlevelbButton.position(630, 370);
-    nextlevelbButton.mousePressed(() => state = 10);  // Set another state on click
+    nextlevelbButton.mousePressed(() => state = 9);  // Set another state on click
     nextlevelbButton.hide();
 
     homebButton = createImg("assets/homeb.PNG");
     homebButton.position(630, 670);
     homebButton.mousePressed(() => state = 0);  // Set another state on click
     homebButton.hide();
+
+    subtbButton = createImg("assets/subtb.PNG");
+    subtbButton.position(40, 700);
+    subtbButton.mousePressed(() => state = 17);  // Set another state on click
+    subtbButton.hide();
+
+    campusbButton = createImg("assets/campusb.PNG");
+    campusbButton.position(500, 800);
+    campusbButton.mousePressed(() => state = 17);  // Set another state on click
+    campusbButton.hide();
+
+    ohreallyrButton = createImg("assets/ohreallyr.PNG");
+    ohreallyrButton.position(900, 800);
+    ohreallyrButton.mousePressed(() => state = 17);  // Set another state on click
+    ohreallyrButton.hide();
+
+    reddressrButton = createImg("assets/reddressr.PNG");
+    reddressrButton.position(1300, 800);
+    reddressrButton.mousePressed(() => state = 17);  // Set another state on click
+    reddressrButton.hide();
+
+
 
 
 
@@ -196,7 +237,7 @@ function preload() {
          lipsButton.hide();
          arrowmButton.hide()
          brestartButton.hide();
-         
+
          homebButton.hide();
          nextlevelbButton.hide();
         
@@ -350,7 +391,7 @@ function preload() {
           case 7:
 
           image(losings, 0, 0);
-          image(yikest, 100,100);
+          image(aurapoints, 100,100);
           brestartButton.show();
 
 
@@ -365,6 +406,7 @@ function preload() {
           laughrButton.hide();
           waitwhatrButton.hide();
           boffButton.hide();
+          stormButton.hide();
 
           girlgGif.hide();
 
@@ -398,6 +440,41 @@ function preload() {
           stormButton.hide();
 
           girlgGif.hide();
+
+          break;
+
+          //level 2 main screen
+
+          case 10:
+
+          background(173,216,230)
+          image(cafe,0, 0);
+          image(nohearing, 30, 5);
+          lipsButton.show();
+          arrowmButton.hide();
+          mouthgGif.hide();
+          nextButton.hide();
+          subtbButton.show();
+          //sadrButton.show();
+          playButton.hide();
+          //seriousrButton.show();
+          //laughrButton.show();
+          waitwhatrButton.show();
+          boffButton.show();
+          girlgGif.show();
+
+          campusbButton.show();
+          ohreallyrButton.show();
+          reddressrButton.show();
+
+
+          homebButton.hide();
+          nextlevelbButton.hide();
+          stormButton.hide();
+        
+
+
+
 
 
 

@@ -17,7 +17,8 @@ let wins;
 let nextlevelb;
 
 
-let goshb, subtitless, wrongb, boff;
+
+let goshb, subtitless, wrongb, boff, homeb;
 
 
 
@@ -65,8 +66,9 @@ function preload() {
     nega = loadImage("assets/nega.PNG");
     pluss = loadImage("assets/pluss.PNG");
     subt = loadImage("assets/subt.PNG");
-    brestart =loadImage("assets/brestart.PNG");
-    nextlevelb =loadImage("assets/nextlevelb.PNG");
+    brestart = loadImage("assets/brestart.PNG");
+    nextlevelb = loadImage("assets/nextlevelb.PNG");
+    homeb = loadImage("assets/homeb.PNG");
 
 
     goshb = loadImage("assets/goshb.PNG");
@@ -168,6 +170,11 @@ function preload() {
     nextlevelbButton.mousePressed(() => state = 10);  // Set another state on click
     nextlevelbButton.hide();
 
+    homebButton = createImg("assets/homeb.PNG");
+    homebButton.position(630, 670);
+    homebButton.mousePressed(() => state = 0);  // Set another state on click
+    homebButton.hide();
+
 
 
    
@@ -187,8 +194,11 @@ function preload() {
          nextButton.hide();
          stormButton.hide();
          lipsButton.hide();
-         arrowmButton.hide();
+         arrowmButton.hide()
          brestartButton.hide();
+         
+         homebButton.hide();
+         nextlevelbButton.hide();
         
         
           break;
@@ -367,6 +377,8 @@ function preload() {
           image(wins, 0, 0);
 
           nextlevelbButton.show();
+
+          homebButton.show();
 
 
           brestartButton.hide();

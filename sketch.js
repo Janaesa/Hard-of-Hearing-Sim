@@ -17,8 +17,9 @@ let wins;
 let nextlevelb;
 let aurapoints;
 let nohearing, ohreallyr, reddresr;
+let subbt;
 
-let subtb, campusb;
+let subtb, campusb, boffy;
 
 
 
@@ -27,7 +28,7 @@ let goshb, subtitless, wrongb, boff, homeb;
 
 
 
-var state = 10;
+var state = 0;
 
 
 let gifTimer = 0;  // Timer for playing the GIF
@@ -43,7 +44,7 @@ var laughrButton, sadrButton, seriousrButton, waitwhatrButton, subtbButton;
 
 var brestartButton, nextlevelbButton, campusbButton;
 
-var ohreallyrButton, reddressrButton;
+var ohreallyrButton, reddressrButton, boffyButton;
 
 
 let mouthg, girlg;
@@ -66,6 +67,8 @@ function preload() {
     yikest = loadImage("assets/yikest.PNG");
     wins = loadImage("assets/wins.PNG");
     aurapoints = loadImage("assets/aurapoints.PNG");
+    subbt = loadImage("assets/subbt.PNG");
+    boffy = loadImage("assets/boffy.PNG");
 
     arrowm = loadImage("assets/arrowm.PNG");
     girlp = loadImage("assets/girlp.PNG");
@@ -91,6 +94,7 @@ function preload() {
     campusbButton = loadImage("assets/campusb.PNG");
     ohreallyrButton = loadImage("assets/ohreallyr.PNG");
     reddressrButton = loadImage("assets/reddressr.PNG");
+    boffyButton = loadImage("assets/boffy.PNG")
   
     
     
@@ -186,7 +190,7 @@ function preload() {
 
     nextlevelbButton = createImg("assets/nextlevelb.PNG");
     nextlevelbButton.position(630, 370);
-    nextlevelbButton.mousePressed(() => state = 9);  // Set another state on click
+    nextlevelbButton.mousePressed(() => state = 10);  // Set another state on click
     nextlevelbButton.hide();
 
     homebButton = createImg("assets/homeb.PNG");
@@ -196,7 +200,7 @@ function preload() {
 
     subtbButton = createImg("assets/subtb.PNG");
     subtbButton.position(40, 700);
-    subtbButton.mousePressed(() => state = 17);  // Set another state on click
+    subtbButton.mousePressed(() => state = 11);  // Set another state on click
     subtbButton.hide();
 
     campusbButton = createImg("assets/campusb.PNG");
@@ -213,6 +217,12 @@ function preload() {
     reddressrButton.position(1300, 800);
     reddressrButton.mousePressed(() => state = 17);  // Set another state on click
     reddressrButton.hide();
+
+    boffyButton = createImg("assets/boffy.PNG");
+    boffyButton.position(-5, -8);
+    boffyButton.mousePressed(() => state = 10);  // Set another state on click
+    boffyButton.hide();
+
 
 
 
@@ -454,6 +464,44 @@ function preload() {
           arrowmButton.hide();
           mouthgGif.hide();
           nextButton.hide();
+          subtButton.hide();
+          subtbButton.show();
+          //sadrButton.show();
+          playButton.hide();
+          //seriousrButton.show();
+          //laughrButton.show();
+          waitwhatrButton.show();
+          boffButton.hide();
+          girlgGif.show();
+
+          //boffyButton.show();
+
+          campusbButton.show();
+          ohreallyrButton.show();
+          reddressrButton.show();
+
+
+          homebButton.hide();
+          nextlevelbButton.hide();
+          stormButton.hide();
+
+          break;
+
+          //subtitles 2 response
+
+
+          case 11:
+
+          background(173,216,230)
+          image(cafe,0, 0);
+          image(nohearing, 30, 5);
+
+          image(subbt, 600, 27);
+
+          lipsButton.show();
+          arrowmButton.hide();
+          mouthgGif.hide();
+          nextButton.hide();
           subtbButton.show();
           //sadrButton.show();
           playButton.hide();
@@ -471,6 +519,12 @@ function preload() {
           homebButton.hide();
           nextlevelbButton.hide();
           stormButton.hide();
+
+
+
+
+
+        
         
 
 

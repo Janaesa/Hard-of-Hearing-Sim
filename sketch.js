@@ -22,6 +22,7 @@ let seclips;
 let weirdb, winfinal;
 let sheslowb;
 let continueb, lastre;
+let lowhear;
 
 let clickCount = 0
 
@@ -116,6 +117,8 @@ function preload() {
     homeftButton = loadImage("assets/homeft.PNG");
     continuebButton = loadImage("assets/continueb.PNG");
     lastreButton = loadImage("assets/lastre.PNG");
+
+    lowhear = loadSound("lowhear.mp3");
   
     
     
@@ -268,7 +271,7 @@ function preload() {
 
     negaButton = createImg("assets/nega.PNG");
     negaButton.position(350, 230);
-    negaButton.mousePressed(() => state = 20);  // Set another state on click
+    negaButton.mousePressed(() => state = 17);  // Set another state on click
     negaButton.hide();
 
 
@@ -806,8 +809,39 @@ function preload() {
 
           break;
 
+          case 17:
+
+          background(173,216,230)
+          image(cafe,0, 0);
+          image(hearing, 30, 5);
+          lipsButton.show();
+          arrowmButton.hide();
+          mouthgGif.hide();
+          nextButton.hide();
+          subtButton.show();
+          sadrButton.show();
+          playButton.hide();
+          seriousrButton.show();
+          laughrButton.show();
+          waitwhatrButton.show();
+          boffButton.show();
+          plussButton.show();
+          negaButton.show();
+
+          lowhear.play();
+          
+          stormButton.hide(0);
+
+          girlgGif.show();
+
+          break;
+
+
+
           
           }
+
+          
 
 
          

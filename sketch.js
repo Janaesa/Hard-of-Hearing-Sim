@@ -261,6 +261,17 @@ function preload() {
     lastreButton.mousePressed(() => state = 0);  // Set another state on click
     lastreButton.hide();
 
+    plussButton = createImg("assets/pluss.PNG");
+    plussButton.position(350, 80);
+    plussButton.mousePressed(() => state = 20);  // Set another state on click
+    plussButton.hide();
+
+    negaButton = createImg("assets/nega.PNG");
+    negaButton.position(350, 230);
+    negaButton.mousePressed(() => state = 20);  // Set another state on click
+    negaButton.hide();
+
+
 
 
 
@@ -352,6 +363,8 @@ function preload() {
           laughrButton.show();
           waitwhatrButton.show();
           boffButton.show();
+          plussButton.show();
+          negaButton.show();
 
           //image(lips, 10,70)
           
@@ -389,6 +402,8 @@ function preload() {
           reddressrButton.hide();
           secoffButton.hide();
           subtbButton.hide();
+          plussButton.hide();
+          negaButton.hide();
 
 
 
@@ -468,6 +483,8 @@ function preload() {
           waitwhatrButton.hide();
           boffButton.hide();
           stormButton.hide();
+          plussButton.hide();
+          negaButton.hide();
 
           girlgGif.hide();
 
@@ -502,6 +519,8 @@ function preload() {
           girlgGif.hide();
           barrowButton.hide();
           seclipsButton.hide();
+          plussButton.hide();
+          negaButton.hide();
 
           break;
 
@@ -782,6 +801,8 @@ function preload() {
           subtbButton.hide();
           homeftButton.hide();
           homebButton.hide();
+          plussButton.hide();
+          negaButton.hide();
 
           break;
 

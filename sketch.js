@@ -21,7 +21,9 @@ let subbt, ohnos;
 let seclips;
 let weirdb, winfinal;
 let sheslowb;
-let continueb;
+let continueb, lastre;
+
+let clickCount = 0
 
 let subtb, campusb, secoff, barrow, homeft;
 
@@ -32,7 +34,7 @@ let goshb, subtitless, wrongb, boff, homeb;
 
 
 
-var state = 9;
+var state = 0;
 
 
 let gifTimer = 0;  // Timer for playing the GIF
@@ -42,7 +44,7 @@ var nextButton, playButton, stormButton, arrowmButton;
 
 let arrowm, girlp, hearing, lips, nega, pluss, subt;
 
-var lipsButton, negaButton, plussButton, subtButton, boffButton;
+var lipsButton, negaButton, plussButton, subtButton, boffButton, lastreButton;
 
 var laughrButton, sadrButton, seriousrButton, waitwhatrButton, subtbButton, homeftButton;
 
@@ -75,7 +77,8 @@ function preload() {
     secoff = loadImage("assets/secoff.PNG");
     endsf = loadImage("assets/endsf.PNG");
     homeft = loadImage("assets/homeft.PNG");
-    ohnos = loadImage("assets/ohnos.PNG")
+    ohnos = loadImage("assets/ohnos.PNG");
+    endsf = loadImage("assets/endsf.PNG");
 
     arrowm = loadImage("assets/arrowm.PNG");
     girlp = loadImage("assets/girlp.PNG");
@@ -96,6 +99,7 @@ function preload() {
     sheslowb = loadImage("assets/sheslowb.PNG");
     winfinal = loadImage("assets/winfinal.PNG");
     continueb = loadImage("assets/continueb.PNG");
+    lastre = loadImage("assets/lastre.PNG");
 
 
 
@@ -111,6 +115,7 @@ function preload() {
     seclipsButton = loadImage("assets/seclips.PNG");
     homeftButton = loadImage("assets/homeft.PNG");
     continuebButton = loadImage("assets/continueb.PNG");
+    lastreButton = loadImage("assets/lastre.PNG");
   
     
     
@@ -185,7 +190,7 @@ function preload() {
 
     waitwhatrButton = createImg("assets/waitwhatr.PNG");
     waitwhatrButton.position(1700, 800);
-    waitwhatrButton.mousePressed(() => state = 17);  // Set another state on click
+    waitwhatrButton.mousePressed(() => state = 16);  // Set another state on click
     waitwhatrButton.hide();
 
     boffButton = createImg("assets/boff.PNG");
@@ -251,9 +256,17 @@ function preload() {
     continuebButton.mousePressed(() => state = 10);  // Set another state on click
     continuebButton.hide();
 
+    lastreButton = createImg("assets/lastre.PNG");
+    lastreButton.position(130, 590);
+    lastreButton.mousePressed(() => state = 0);  // Set another state on click
+    lastreButton.hide();
+
+
+
 
    
   }
+
 
   function draw() {
   
@@ -277,6 +290,7 @@ function preload() {
          barrowButton.hide();
          seclipsButton.hide();
          homeftButton.hide();
+         lastreButton.hide();
 
         
         
@@ -735,21 +749,41 @@ function preload() {
 
           break;
 
+          //final lost
 
+          case 16:
 
+          background(173,216,230);
+          image(endsf, 0, 0);
 
+          lastreButton.show();
 
+          mouthgGif.hide();
+          barrowButton.hide();
 
+          girlgGif.hide();
+          arrowmButton.hide();
+          playButton.hide();
+          nextButton.hide();
+          stormButton.hide();
+          lipsButton.hide();
+          subtButton.hide();
+          seriousrButton.hide();
+          laughrButton.hide();
+          waitwhatrButton.hide();
+          sadrButton.hide();
+          boffButton.hide();
+          seclipsButton.hide();
 
+          campusbButton.hide();
+          ohreallyrButton.hide();
+          reddressrButton.hide();
+          secoffButton.hide();
+          subtbButton.hide();
+          homeftButton.hide();
+          homebButton.hide();
 
-
-
-
-
-
-
-
-
+          break;
 
           
           }

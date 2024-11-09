@@ -13,13 +13,17 @@ let waitwhatr;
 let losings;
 let yikest;
 let brestart;
-let wins;
+let wins, endsf;
 let nextlevelb;
 let aurapoints;
 let nohearing, ohreallyr, reddresr;
-let subbt;
+let subbt, ohnos;
+let seclips;
+let weirdb, winfinal;
+let sheslowb;
+let continueb;
 
-let subtb, campusb, boffy;
+let subtb, campusb, secoff, barrow, homeft;
 
 
 
@@ -28,7 +32,7 @@ let goshb, subtitless, wrongb, boff, homeb;
 
 
 
-var state = 0;
+var state = 9;
 
 
 let gifTimer = 0;  // Timer for playing the GIF
@@ -40,11 +44,11 @@ let arrowm, girlp, hearing, lips, nega, pluss, subt;
 
 var lipsButton, negaButton, plussButton, subtButton, boffButton;
 
-var laughrButton, sadrButton, seriousrButton, waitwhatrButton, subtbButton;
+var laughrButton, sadrButton, seriousrButton, waitwhatrButton, subtbButton, homeftButton;
 
-var brestartButton, nextlevelbButton, campusbButton;
+var brestartButton, nextlevelbButton, campusbButton, continuebButton;
 
-var ohreallyrButton, reddressrButton, boffyButton;
+var ohreallyrButton, reddressrButton, secoffButton, barrowButton, seclipsButton;
 
 
 let mouthg, girlg;
@@ -68,7 +72,10 @@ function preload() {
     wins = loadImage("assets/wins.PNG");
     aurapoints = loadImage("assets/aurapoints.PNG");
     subbt = loadImage("assets/subbt.PNG");
-    boffy = loadImage("assets/boffy.PNG");
+    secoff = loadImage("assets/secoff.PNG");
+    endsf = loadImage("assets/endsf.PNG");
+    homeft = loadImage("assets/homeft.PNG");
+    ohnos = loadImage("assets/ohnos.PNG")
 
     arrowm = loadImage("assets/arrowm.PNG");
     girlp = loadImage("assets/girlp.PNG");
@@ -83,6 +90,12 @@ function preload() {
     nohearing = loadImage("assets/nohearing.PNG");
     ohreallyr = loadImage("assets/ohreallyr.PNG");
     reddressr = loadImage("assets/reddressr.PNG");
+    barrow = loadImage("assets/barrow.PNG");
+    seclips = loadImage("assets/seclips.PNG");
+    weirdb = loadImage("assets/weirdb.PNG");
+    sheslowb = loadImage("assets/sheslowb.PNG");
+    winfinal = loadImage("assets/winfinal.PNG");
+    continueb = loadImage("assets/continueb.PNG");
 
 
 
@@ -94,7 +107,10 @@ function preload() {
     campusbButton = loadImage("assets/campusb.PNG");
     ohreallyrButton = loadImage("assets/ohreallyr.PNG");
     reddressrButton = loadImage("assets/reddressr.PNG");
-    boffyButton = loadImage("assets/boffy.PNG")
+    secoffButton = loadImage("assets/secoff.PNG");
+    seclipsButton = loadImage("assets/seclips.PNG");
+    homeftButton = loadImage("assets/homeft.PNG");
+    continuebButton = loadImage("assets/continueb.PNG");
   
     
     
@@ -102,12 +118,6 @@ function preload() {
 
     girlgGif = createImg("assets/girlg.GIF"); // Keep the GIF as an HTML element
     mouthgGif = createImg("assets/mouthg.GIF"); // Keep the GIF as an HTML element
-
-
-  
-
-
-
 
 
   }
@@ -175,7 +185,7 @@ function preload() {
 
     waitwhatrButton = createImg("assets/waitwhatr.PNG");
     waitwhatrButton.position(1700, 800);
-    waitwhatrButton.mousePressed(() => state = 9);  // Set another state on click
+    waitwhatrButton.mousePressed(() => state = 17);  // Set another state on click
     waitwhatrButton.hide();
 
     boffButton = createImg("assets/boff.PNG");
@@ -190,7 +200,7 @@ function preload() {
 
     nextlevelbButton = createImg("assets/nextlevelb.PNG");
     nextlevelbButton.position(630, 370);
-    nextlevelbButton.mousePressed(() => state = 10);  // Set another state on click
+    nextlevelbButton.mousePressed(() => state = 9);  // Set another state on click
     nextlevelbButton.hide();
 
     homebButton = createImg("assets/homeb.PNG");
@@ -205,27 +215,41 @@ function preload() {
 
     campusbButton = createImg("assets/campusb.PNG");
     campusbButton.position(500, 800);
-    campusbButton.mousePressed(() => state = 17);  // Set another state on click
+    campusbButton.mousePressed(() => state = 13);  // Set another state on click
     campusbButton.hide();
 
     ohreallyrButton = createImg("assets/ohreallyr.PNG");
     ohreallyrButton.position(900, 800);
-    ohreallyrButton.mousePressed(() => state = 17);  // Set another state on click
+    ohreallyrButton.mousePressed(() => state = 14);  // Set another state on click
     ohreallyrButton.hide();
 
     reddressrButton = createImg("assets/reddressr.PNG");
     reddressrButton.position(1300, 800);
-    reddressrButton.mousePressed(() => state = 17);  // Set another state on click
+    reddressrButton.mousePressed(() => state = 15);  // Set another state on click
     reddressrButton.hide();
 
-    boffyButton = createImg("assets/boffy.PNG");
-    boffyButton.position(-5, -8);
-    boffyButton.mousePressed(() => state = 10);  // Set another state on click
-    boffyButton.hide();
+    secoffButton = createImg("assets/secoff.PNG");
+    secoffButton.position(100, 980);
+    secoffButton.mousePressed(() => state = 10);  // Set another state on click
+    secoffButton.hide();
 
+    barrowButton = createImg("assets/barrow.PNG");
+    barrowButton.position(5, -10);
+    barrowButton.mousePressed(() => state = 10);  // Set another state on click
 
+    seclipsButton = createImg("assets/seclips.PNG");
+    seclipsButton.position(40, 370);
+    seclipsButton.mousePressed(() => state = 12);  // Set another state on click
 
+    homeftButton = createImg("assets/homeft.PNG");
+    homeftButton.position(130, 470);
+    homeftButton.mousePressed(() => state = 0);  // Set another state on click
+    homeftButton.hide();
 
+    continuebButton = createImg("assets/continueb.PNG");
+    continuebButton.position(130, 590);
+    continuebButton.mousePressed(() => state = 10);  // Set another state on click
+    continuebButton.hide();
 
 
    
@@ -250,6 +274,10 @@ function preload() {
 
          homebButton.hide();
          nextlevelbButton.hide();
+         barrowButton.hide();
+         seclipsButton.hide();
+         homeftButton.hide();
+
         
         
           break;
@@ -342,6 +370,15 @@ function preload() {
           sadrButton.hide();
           boffButton.hide();
 
+          campusbButton.hide();
+          ohreallyrButton.hide();
+          reddressrButton.hide();
+          secoffButton.hide();
+          subtbButton.hide();
+
+
+
+
           
 
 
@@ -429,7 +466,6 @@ function preload() {
           image(wins, 0, 0);
 
           nextlevelbButton.show();
-
           homebButton.show();
 
 
@@ -450,8 +486,42 @@ function preload() {
           stormButton.hide();
 
           girlgGif.hide();
+          barrowButton.hide();
+          seclipsButton.hide();
 
           break;
+
+          //oh no screen
+
+          case 9:
+
+          image(ohnos, 0, 0);
+
+          continuebButton.show();
+
+          nextlevelbButton.hide();
+          homebButton.hide();
+          brestartButton.hide();
+          lipsButton.hide();
+          arrowmButton.hide();
+          mouthgGif.hide();
+          nextButton.hide();
+          subtButton.hide();
+          sadrButton.hide();
+          playButton.hide();
+          seriousrButton.hide();
+          laughrButton.hide();
+          waitwhatrButton.hide();
+          boffButton.hide();
+          stormButton.hide();
+
+          girlgGif.hide();
+          barrowButton.hide();
+          seclipsButton.hide();
+
+          break;
+
+
 
           //level 2 main screen
 
@@ -460,21 +530,19 @@ function preload() {
           background(173,216,230)
           image(cafe,0, 0);
           image(nohearing, 30, 5);
-          lipsButton.show();
+          lipsButton.hide();
           arrowmButton.hide();
           mouthgGif.hide();
           nextButton.hide();
           subtButton.hide();
           subtbButton.show();
-          //sadrButton.show();
           playButton.hide();
-          //seriousrButton.show();
-          //laughrButton.show();
           waitwhatrButton.show();
           boffButton.hide();
           girlgGif.show();
 
-          //boffyButton.show();
+          secoffButton.show();
+          seclipsButton.show();
 
           campusbButton.show();
           ohreallyrButton.show();
@@ -484,6 +552,8 @@ function preload() {
           homebButton.hide();
           nextlevelbButton.hide();
           stormButton.hide();
+          barrowButton.hide();
+          continuebButton.hide();
 
           break;
 
@@ -498,17 +568,14 @@ function preload() {
 
           image(subbt, 600, 27);
 
-          lipsButton.show();
+          lipsButton.hide();
           arrowmButton.hide();
           mouthgGif.hide();
           nextButton.hide();
           subtbButton.show();
-          //sadrButton.show();
           playButton.hide();
-          //seriousrButton.show();
-          //laughrButton.show();
           waitwhatrButton.show();
-          boffButton.show();
+          boffButton.hide();
           girlgGif.show();
 
           campusbButton.show();
@@ -519,15 +586,154 @@ function preload() {
           homebButton.hide();
           nextlevelbButton.hide();
           stormButton.hide();
+          barrowButton.hide();
+
+          break;
+
+          //second mouth gif
+
+          case 12:
+
+          background(173,216,230)
+          image(cafe,0,0);
+          image(readl,780,100);
+          mouthgGif.show();
+          barrowButton.show();
+
+
+          girlgGif.hide();
+          arrowmButton.hide();
+          playButton.hide();
+          nextButton.hide();
+          stormButton.hide();
+          lipsButton.hide();
+          subtButton.hide();
+          seriousrButton.hide();
+          laughrButton.hide();
+          waitwhatrButton.hide();
+          sadrButton.hide();
+          boffButton.hide();
+          seclipsButton.hide();
+
+          campusbButton.hide();
+          ohreallyrButton.hide();
+          reddressrButton.hide();
+          secoffButton.hide();
+          subtbButton.hide();
+
+          break;
+
+          //I live on campus response
+
+          case 13:
+
+          background(173,216,230)
+          image(cafe,0, 0);
+          image(nohearing, 30, 5);
+          image(weirdb, 1380, 5);
+
+
+
+          lipsButton.hide();
+          arrowmButton.hide();
+          mouthgGif.hide();
+          nextButton.hide();
+          subtButton.hide();
+          subtbButton.show();
+          playButton.hide();
+          waitwhatrButton.show();
+          boffButton.hide();
+          girlgGif.show();
+
+          secoffButton.show();
+          seclipsButton.show();
+
+          campusbButton.show();
+          ohreallyrButton.show();
+          reddressrButton.show();
+
+
+          homebButton.hide();
+          nextlevelbButton.hide();
+          stormButton.hide();
+          barrowButton.hide();
+
+          break;
+
+
+
+          //oh really response
+
+          case 14:
+
+          background(173,216,230)
+          image(cafe,0, 0);
+          image(nohearing, 30, 5);
+          image(sheslowb, 1380, 5);
+
+
+
+          lipsButton.hide();
+          arrowmButton.hide();
+          mouthgGif.hide();
+          nextButton.hide();
+          subtButton.hide();
+          subtbButton.show();
+          playButton.hide();
+          waitwhatrButton.show();
+          boffButton.hide();
+          girlgGif.show();
+
+          secoffButton.show();
+          seclipsButton.show();
+
+          campusbButton.show();
+          ohreallyrButton.show();
+          reddressrButton.show();
+
+
+          homebButton.hide();
+          nextlevelbButton.hide();
+          stormButton.hide();
+          barrowButton.hide();
+
+          break;
 
 
 
 
+          // the red dress response
 
-        
-        
+          case 15:
 
+          background(173,216,230);
+          image(winfinal, 0, 0);
 
+          mouthgGif.hide();
+          barrowButton.hide();
+
+          girlgGif.hide();
+          arrowmButton.hide();
+          playButton.hide();
+          nextButton.hide();
+          stormButton.hide();
+          lipsButton.hide();
+          subtButton.hide();
+          seriousrButton.hide();
+          laughrButton.hide();
+          waitwhatrButton.hide();
+          sadrButton.hide();
+          boffButton.hide();
+          seclipsButton.hide();
+
+          campusbButton.hide();
+          ohreallyrButton.hide();
+          reddressrButton.hide();
+          secoffButton.hide();
+          subtbButton.hide();
+          homeftButton.show();
+
+          break;
 
 
 

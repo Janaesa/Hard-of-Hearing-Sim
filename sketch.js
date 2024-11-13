@@ -26,6 +26,9 @@ let lowhear;
 let highvoice;
 let Highback;
 let lowback;
+let deaf;
+let secback;
+
 
 let clickCount = 0
 
@@ -125,6 +128,8 @@ function preload() {
     highvoice = loadSound("highvoice.mp3");
     Highback = loadSound("Highback.mp3");
     lowback = loadSound("lowback.mp3");
+    secback = loadSound("secback.mp3");
+    deaf = loadSound("deaf.mp3");
   
     
     
@@ -171,7 +176,7 @@ function preload() {
 
     stormButton = createImg("assets/storm.png");
     stormButton.position(1000, 900);
-    stormButton.mousePressed(() => state = 3);  // Set another state on click
+    stormButton.mousePressed(() => {state = 3; lowhear.play();lowback.play()});  // Set another state on click
 
     arrowmButton = createImg("assets/arrowm.PNG");
     arrowmButton.position(5, -10);
@@ -184,7 +189,7 @@ function preload() {
 
     sadrButton = createImg("assets/sadr.PNG");
     sadrButton.position(500, 800);
-    sadrButton.mousePressed(() => state = 8);  // Set another state on click
+    sadrButton.mousePressed(() => {state = 8; highvoice.stop(); lowhear.stop()});  // Set another state on click
     sadrButton.hide();
 
     seriousrButton = createImg("assets/seriousr.PNG");
@@ -262,7 +267,7 @@ function preload() {
 
     continuebButton = createImg("assets/continueb.PNG");
     continuebButton.position(130, 590);
-    continuebButton.mousePressed(() => state = 10);  // Set another state on click
+    continuebButton.mousePressed(() => {state = 10; secback.loop();deaf.play()});  // Set another state on click
     continuebButton.hide();
 
     lastreButton = createImg("assets/lastre.PNG");
@@ -272,7 +277,7 @@ function preload() {
 
     plussButton = createImg("assets/pluss.PNG");
     plussButton.position(350, 80);
-    plussButton.mousePressed(() => {state = 18; highvoice.play();Highback.loop(); lowhear.stop(); lowback.stop()});  // Set another state on click
+    plussButton.mousePressed(() => {state = 17; highvoice.play();Highback.loop(); lowhear.stop(); lowback.stop()});  // Set another state on click
     plussButton.hide();
 
     negaButton = createImg("assets/nega.PNG");
@@ -311,6 +316,13 @@ function preload() {
          seclipsButton.hide();
          homeftButton.hide();
          lastreButton.hide();
+
+         lowhear.stop();
+          lowback.stop();
+          highvoice.stop();
+          Highback.stop();
+          secback.stop();
+          deaf.stop();
 
         
         
@@ -497,6 +509,10 @@ function preload() {
 
           girlgGif.hide();
 
+          lowhear.stop();
+          highvoice.stop();
+         
+
           break;
 
           //winning screen
@@ -561,6 +577,11 @@ function preload() {
           barrowButton.hide();
           seclipsButton.hide();
 
+          lowhear.stop();
+          lowback.stop();
+          highvoice.stop();
+          Highback.stop();
+
           break;
 
 
@@ -596,6 +617,11 @@ function preload() {
           stormButton.hide();
           barrowButton.hide();
           continuebButton.hide();
+
+          lowhear.stop();
+          lowback.stop();
+          highvoice.stop();
+          Highback.stop();
 
           break;
 
@@ -813,7 +839,11 @@ function preload() {
           plussButton.hide();
           negaButton.hide();
 
+          deaf.stop();
+
           break;
+
+          //minus button response
 
           case 17:
 
@@ -838,38 +868,13 @@ function preload() {
 
           //lowhear.play();
           
-          stormButton.hide(0);
+          stormButton.hide();
 
           girlgGif.show();
 
           break;
 
-          case 18:
-
-          background(173,216,230)
-          image(cafe,0, 0);
-          image(hearing, 30, 5);
-          lipsButton.show();
-          arrowmButton.hide();
-          mouthgGif.hide();
-          nextButton.hide();
-          subtButton.show();
-          sadrButton.show();
-          playButton.hide();
-          seriousrButton.show();
-          laughrButton.show();
-          waitwhatrButton.show();
-          boffButton.show();
-          plussButton.show();
-          negaButton.show();
-
-          //lowhear.play();
-          
-          stormButton.hide(0);
-
-          girlgGif.show();
-
-          break;
+        
 
 
 

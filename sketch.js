@@ -271,7 +271,7 @@ function preload() {
 
     negaButton = createImg("assets/nega.PNG");
     negaButton.position(350, 230);
-    negaButton.mousePressed(() => state = 17);  // Set another state on click
+    negaButton.mousePressed(() => { state = 17; lowhear.loop()});  // Set another state on click
     negaButton.hide();
 
 
@@ -828,7 +828,7 @@ function preload() {
           plussButton.show();
           negaButton.show();
 
-          lowhear.play();
+          //lowhear.play();
           
           stormButton.hide(0);
 

@@ -9,7 +9,7 @@ let laughr;
 let readl;
 let sadr;
 let seriousr;
-let waitwhatr;
+let waitwhatr, whatr;
 let losings;
 let yikest;
 let brestart;
@@ -21,7 +21,7 @@ let subbt, ohnos;
 let seclips;
 let weirdb, winfinal;
 let sheslowb;
-let continueb, lastre;
+let continueb, lastre, plus2;
 let lowhear;
 let highvoice;
 let Highback;
@@ -31,6 +31,8 @@ let secback;
 let dyingh;
 let grandmadied;
 let winsound;
+let finallost;
+let whath;
 
 
 let clickCount = 0
@@ -54,11 +56,11 @@ var nextButton, playButton, stormButton, arrowmButton;
 
 let arrowm, girlp, hearing, lips, nega, pluss, subt;
 
-var lipsButton, negaButton, plussButton, subtButton, boffButton, lastreButton;
+var lipsButton, negaButton, plussButton, subtButton, boffButton, lastreButton,whathButton;
 
 var laughrButton, sadrButton, seriousrButton, waitwhatrButton, subtbButton, homeftButton;
 
-var brestartButton, nextlevelbButton, campusbButton, continuebButton;
+var brestartButton, nextlevelbButton, campusbButton, continuebButton, whatrButton,plus2Button;
 
 var ohreallyrButton, reddressrButton, secoffButton, barrowButton, seclipsButton;
 
@@ -89,6 +91,8 @@ function preload() {
     homeft = loadImage("assets/homeft.PNG");
     ohnos = loadImage("assets/ohnos.PNG");
     endsf = loadImage("assets/endsf.PNG");
+    plus2 = loadImage("assets/plus2.PNG");
+    whath = loadImage("assets/whath.PNG");
 
     arrowm = loadImage("assets/arrowm.PNG");
     girlp = loadImage("assets/girlp.PNG");
@@ -110,6 +114,12 @@ function preload() {
     winfinal = loadImage("assets/winfinal.PNG");
     continueb = loadImage("assets/continueb.PNG");
     lastre = loadImage("assets/lastre.PNG");
+    whatr = loadImage("assets/whatr.PNG");
+    plus2 = loadImage("assets/plus2.PNG");
+
+
+    whathButton = loadImage("assets/whath.PNG");
+   
 
 
 
@@ -126,6 +136,9 @@ function preload() {
     homeftButton = loadImage("assets/homeft.PNG");
     continuebButton = loadImage("assets/continueb.PNG");
     lastreButton = loadImage("assets/lastre.PNG");
+    whatrButton = loadImage("assets/whatr.PNG");
+    plus2Button = loadImage("assets/plus2.PNG");
+    
 
     lowhear = loadSound("lowhear.mp3");
     highvoice = loadSound("highvoice.mp3");
@@ -136,9 +149,8 @@ function preload() {
     dyingh = loadSound("dyingh.mp3");
     grandmadied = loadSound("grandmadied.mp3");
     winsound = loadSound("winsound.mp3");
+    finallost = loadSound("finallost.mp3");
   
-    
-    
 
 
     girlgGif = createImg("assets/girlg.GIF"); // Keep the GIF as an HTML element
@@ -195,7 +207,7 @@ function preload() {
 
     sadrButton = createImg("assets/sadr.PNG");
     sadrButton.position(500, 800);
-    sadrButton.mousePressed(() => {state = 8; highvoice.stop(); lowhear.stop(); winsound.play()});  // Set another state on click
+    sadrButton.mousePressed(() => {state = 8; highvoice.stop();Highback.stop(); lowhear.stop(); winsound.play()});  // Set another state on click
     sadrButton.hide();
 
     seriousrButton = createImg("assets/seriousr.PNG");
@@ -210,8 +222,18 @@ function preload() {
 
     waitwhatrButton = createImg("assets/waitwhatr.PNG");
     waitwhatrButton.position(1700, 800);
-    waitwhatrButton.mousePressed(() => state = 16);  // Set another state on click
+    waitwhatrButton.mousePressed(() => {state = 16; finallost.play();lowhear.stop();highvoice.stop();Highback.stop();});  // Set another state on click
     waitwhatrButton.hide();
+
+    whatrButton = createImg("assets/whatr.PNG");
+    whatrButton.position(1700, 800);
+    whatrButton.mousePressed(() => {state = 18;lowhear.play();});  // Set another state on click
+    whatrButton.hide();
+
+    whathButton = createImg("assets/whath.PNG");
+    whathButton.position(1700, 800);
+    whathButton.mousePressed(() => {state = 18;highvoice.play();});  // Set another state on click
+    whathButton.hide();
 
     boffButton = createImg("assets/boff.PNG");
     boffButton.position(100, 980);
@@ -283,12 +305,17 @@ function preload() {
 
     plussButton = createImg("assets/pluss.PNG");
     plussButton.position(350, 80);
-    plussButton.mousePressed(() => {state = 17; highvoice.play();Highback.loop(); lowhear.stop(); lowback.stop()});  // Set another state on click
+    plussButton.mousePressed(() => {state = 19; highvoice.play();Highback.loop(); lowhear.stop(); lowback.stop()});  // Set another state on click
     plussButton.hide();
+
+    plus2Button = createImg("assets/plus2.PNG");
+    plus2Button.position(350, 80);
+    plus2Button.mousePressed(() => {state = 21;Highback.loop(); lowhear.stop(); lowback.stop()});  // Set another state on click
+    plus2Button.hide();
 
     negaButton = createImg("assets/nega.PNG");
     negaButton.position(350, 230);
-    negaButton.mousePressed(() => { state = 17; lowhear.play(); lowback.loop(); Highback.stop(); highvoice.stop()});  // Set another state on click
+    negaButton.mousePressed(() => { state = 20; lowback.loop(); Highback.stop(); highvoice.stop()});  // Set another state on click
     negaButton.hide();
 
 
@@ -322,6 +349,9 @@ function preload() {
          seclipsButton.hide();
          homeftButton.hide();
          lastreButton.hide();
+         whathButton.hide();
+         whatrButton.hide();
+         plus2Button.hide();
 
          lowhear.stop();
           lowback.stop();
@@ -388,7 +418,8 @@ function preload() {
           playButton.hide();
           seriousrButton.show();
           laughrButton.show();
-          waitwhatrButton.show();
+          waitwhatrButton.hide();
+          whatrButton.show();
           boffButton.show();
           plussButton.show();
           negaButton.show();
@@ -431,6 +462,9 @@ function preload() {
           subtbButton.hide();
           plussButton.hide();
           negaButton.hide();
+          whathButton.hide();
+          whatrButton.hide();
+          plus2Button.hide();
 
 
 
@@ -552,6 +586,11 @@ function preload() {
           seclipsButton.hide();
           plussButton.hide();
           negaButton.hide();
+          plus2Button.hide();
+
+          whathButton.hide();
+          whatrButton.hide();
+          plus2Button.hide();
 
           break;
 
@@ -845,6 +884,10 @@ function preload() {
           plussButton.hide();
           negaButton.hide();
 
+          whathButton.hide();
+          whatrButton.hide();
+          plus2Button.hide();
+
           deaf.stop();
 
           break;
@@ -879,6 +922,143 @@ function preload() {
           girlgGif.show();
 
           break;
+
+          case 18:
+            background(173,216,230)
+            image(cafe,0, 0);
+            image(hearing, 30, 5);
+            lipsButton.show();
+            arrowmButton.hide();
+            mouthgGif.hide();
+            nextButton.hide();
+            subtButton.show();
+            sadrButton.show();
+            playButton.hide();
+            seriousrButton.show();
+            laughrButton.show();
+            waitwhatrButton.show();
+            whatrButton.hide();
+            whathButton.hide();
+            boffButton.show();
+            plussButton.show();
+            negaButton.show();
+  
+            //image(lips, 10,70)
+            
+            stormButton.hide(0);
+  
+            girlgGif.show();
+
+            break;
+
+            //plus button 2 page
+
+            case 19:
+
+          background(173,216,230)
+          image(cafe,0, 0);
+          image(hearing, 30, 5);
+          lipsButton.show();
+          arrowmButton.hide();
+          mouthgGif.hide();
+          nextButton.hide();
+          subtButton.show();
+          sadrButton.show();
+          playButton.hide();
+          seriousrButton.show();
+          laughrButton.show();
+
+          waitwhatrButton.hide();
+          whathButton.show();
+
+          boffButton.show();
+          plussButton.hide();
+          plus2Button.show();
+          negaButton.show();
+
+          
+
+          //lowhear.play();
+          
+          stormButton.hide();
+
+          girlgGif.show();
+
+          break;
+
+          //minus button 1 response
+
+          case 20:
+
+          background(173,216,230)
+          image(cafe,0, 0);
+          image(hearing, 30, 5);
+          lipsButton.show();
+          arrowmButton.hide();
+          mouthgGif.hide();
+          nextButton.hide();
+          subtButton.show();
+          sadrButton.show();
+          playButton.hide();
+          seriousrButton.show();
+          laughrButton.show();
+
+          waitwhatrButton.show();
+          whatrButton.show();
+          whathButton.hide();
+
+          boffButton.show();
+          plussButton.show();
+          plus2Button.hide();
+          negaButton.show();
+
+          
+
+          //lowhear.play();
+          
+          stormButton.hide();
+
+          girlgGif.show();
+
+          break;
+
+          //plus button 2 response
+
+          case 21:
+
+          background(173,216,230)
+          image(cafe,0, 0);
+          image(hearing, 30, 5);
+          lipsButton.show();
+          arrowmButton.hide();
+          mouthgGif.hide();
+          nextButton.hide();
+          subtButton.show();
+          sadrButton.show();
+          playButton.hide();
+          seriousrButton.show();
+          laughrButton.show();
+
+          waitwhatrButton.show();
+          whatrButton.hide
+
+          boffButton.show();
+          plussButton.hide();
+          plus2Button.show();
+          negaButton.show();
+
+          
+
+          //lowhear.play();
+          
+          stormButton.hide();
+
+          girlgGif.show();
+
+          break;
+  
+
+  
 
         
 

@@ -28,6 +28,9 @@ let Highback;
 let lowback;
 let deaf;
 let secback;
+let dyingh;
+let grandmadied;
+let winsound;
 
 
 let clickCount = 0
@@ -130,6 +133,9 @@ function preload() {
     lowback = loadSound("lowback.mp3");
     secback = loadSound("secback.mp3");
     deaf = loadSound("deaf.mp3");
+    dyingh = loadSound("dyingh.mp3");
+    grandmadied = loadSound("grandmadied.mp3");
+    winsound = loadSound("winsound.mp3");
   
     
     
@@ -189,7 +195,7 @@ function preload() {
 
     sadrButton = createImg("assets/sadr.PNG");
     sadrButton.position(500, 800);
-    sadrButton.mousePressed(() => {state = 8; highvoice.stop(); lowhear.stop()});  // Set another state on click
+    sadrButton.mousePressed(() => {state = 8; highvoice.stop(); lowhear.stop(); winsound.play()});  // Set another state on click
     sadrButton.hide();
 
     seriousrButton = createImg("assets/seriousr.PNG");
@@ -199,7 +205,7 @@ function preload() {
 
     laughrButton = createImg("assets/laughr.PNG");
     laughrButton.position(1300, 800);
-    laughrButton.mousePressed(() => state = 7);  // Set another state on click
+    laughrButton.mousePressed(() => {state = 7; grandmadied.play(); lowback.stop();Highback.stop()});  // Set another state on click
     laughrButton.hide();
 
     waitwhatrButton = createImg("assets/waitwhatr.PNG");
@@ -214,12 +220,12 @@ function preload() {
 
     brestartButton = createImg("assets/brestart.PNG");
     brestartButton.position(900, 980);
-    brestartButton.mousePressed(() => state = 0);  // Set another state on click
+    brestartButton.mousePressed(() => {state = 0; grandmadied.stop()});  // Set another state on click
     brestartButton.hide();
 
     nextlevelbButton = createImg("assets/nextlevelb.PNG");
     nextlevelbButton.position(630, 370);
-    nextlevelbButton.mousePressed(() => state = 9);  // Set another state on click
+    nextlevelbButton.mousePressed(() => {state = 9; dyingh.play()});  // Set another state on click
     nextlevelbButton.hide();
 
     homebButton = createImg("assets/homeb.PNG");

@@ -546,6 +546,9 @@ function preload() {
           stormButton.hide();
           plussButton.hide();
           negaButton.hide();
+          plus2Button.hide();
+          whatrButton.hide();
+          whathButton.hide();
 
           girlgGif.hide();
 
